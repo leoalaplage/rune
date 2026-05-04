@@ -1,0 +1,723 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Politique de confidentialité et support de Rune, disponible en français et en anglais.">
+  <meta name="color-scheme" content="light dark">
+  <title>Politique de confidentialité · Rune</title>
+  <style>
+    :root {
+      --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+      --text-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
+      --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.0625rem);
+      --text-lg: clamp(1.125rem, 1rem + 0.75vw, 1.375rem);
+      --text-xl: clamp(1.5rem, 1.2rem + 1.25vw, 2rem);
+      --space-1: 0.25rem;
+      --space-2: 0.5rem;
+      --space-3: 0.75rem;
+      --space-4: 1rem;
+      --space-5: 1.25rem;
+      --space-6: 1.5rem;
+      --space-8: 2rem;
+      --space-10: 2.5rem;
+      --space-12: 3rem;
+      --radius-sm: 0.5rem;
+      --radius-md: 0.875rem;
+      --radius-lg: 1.25rem;
+      --radius-full: 999px;
+      --shadow-sm: 0 12px 30px rgba(15, 23, 42, 0.06);
+      --shadow-lg: 0 24px 60px rgba(15, 23, 42, 0.12);
+      --transition: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    :root,
+    [data-theme="light"] {
+      --bg: #f2f6ff;
+      --bg-accent: #eaf2ff;
+      --surface: rgba(255,255,255,0.88);
+      --surface-strong: #ffffff;
+      --surface-soft: #f7faff;
+      --text: #111827;
+      --text-muted: #667085;
+      --border: rgba(17, 24, 39, 0.10);
+      --primary: #007AFF;
+      --primary-hover: #005FCC;
+      --primary-soft: rgba(0, 122, 255, 0.10);
+      --success-soft: rgba(52, 199, 89, 0.12);
+      --success-text: #1f7a39;
+    }
+
+    [data-theme="dark"] {
+      --bg: #0d1117;
+      --bg-accent: #0f1b2d;
+      --surface: rgba(19, 28, 40, 0.88);
+      --surface-strong: #111827;
+      --surface-soft: #162132;
+      --text: #f5f7fb;
+      --text-muted: #a7b0bf;
+      --border: rgba(245, 247, 251, 0.10);
+      --primary: #5AC8FA;
+      --primary-hover: #3bb8ef;
+      --primary-soft: rgba(90, 200, 250, 0.16);
+      --success-soft: rgba(48, 209, 88, 0.12);
+      --success-text: #8af0a8;
+      --shadow-sm: 0 12px 30px rgba(0, 0, 0, 0.24);
+      --shadow-lg: 0 24px 60px rgba(0, 0, 0, 0.34);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme]) {
+        --bg: #0d1117;
+        --bg-accent: #0f1b2d;
+        --surface: rgba(19, 28, 40, 0.88);
+        --surface-strong: #111827;
+        --surface-soft: #162132;
+        --text: #f5f7fb;
+        --text-muted: #a7b0bf;
+        --border: rgba(245, 247, 251, 0.10);
+        --primary: #5AC8FA;
+        --primary-hover: #3bb8ef;
+        --primary-soft: rgba(90, 200, 250, 0.16);
+        --success-soft: rgba(48, 209, 88, 0.12);
+        --success-text: #8af0a8;
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "SF Pro Text", "SF Pro Display", "SF Pro Icons", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: var(--text-base);
+      line-height: 1.65;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, var(--bg-accent), transparent 38%),
+        linear-gradient(180deg, var(--bg) 0%, color-mix(in srgb, var(--bg) 92%, #0000) 100%);
+    }
+
+    a { color: var(--primary); }
+    a:hover { color: var(--primary-hover); }
+
+    .skip-link {
+      position: absolute;
+      left: 1rem;
+      top: -3rem;
+      background: var(--surface-strong);
+      color: var(--text);
+      padding: .75rem 1rem;
+      border-radius: var(--radius-sm);
+      z-index: 100;
+      transition: top var(--transition);
+    }
+    .skip-link:focus { top: 1rem; }
+
+    .shell {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: var(--space-6) var(--space-4) var(--space-12);
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-4);
+      padding: var(--space-4) 0 var(--space-6);
+      backdrop-filter: blur(14px);
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: .85rem;
+      font-weight: 700;
+      letter-spacing: -.02em;
+    }
+
+    .controls {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .segmented,
+    .icon-button {
+      border: 1px solid var(--border);
+      background: var(--surface);
+      box-shadow: var(--shadow-sm);
+      backdrop-filter: blur(16px);
+    }
+
+    .segmented {
+      display: inline-flex;
+      border-radius: var(--radius-full);
+      padding: .25rem;
+      gap: .25rem;
+    }
+
+    .lang-btn,
+    .icon-button {
+      min-height: 44px;
+      min-width: 44px;
+      border-radius: var(--radius-full);
+      border: 0;
+      color: var(--text);
+      font: inherit;
+      cursor: pointer;
+      transition: transform var(--transition), background var(--transition), color var(--transition);
+    }
+
+    .lang-btn {
+      padding: .7rem 1rem;
+      background: transparent;
+      font-size: var(--text-sm);
+      font-weight: 600;
+    }
+
+    .lang-btn[aria-pressed="true"] {
+      background: var(--primary);
+      color: white;
+    }
+
+    .icon-button {
+      display: inline-grid;
+      place-items: center;
+      background: var(--surface);
+    }
+
+    .lang-btn:hover,
+    .icon-button:hover { transform: translateY(-1px); }
+
+    .hero,
+    .card,
+    .quick-nav {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-lg);
+      backdrop-filter: blur(18px);
+    }
+
+    .hero {
+      border-radius: calc(var(--radius-lg) + .5rem);
+      padding: clamp(1.5rem, 3vw, 2.5rem);
+      display: grid;
+      gap: var(--space-6);
+      margin-bottom: var(--space-6);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      width: fit-content;
+      padding: .4rem .75rem;
+      border-radius: var(--radius-full);
+      background: var(--primary-soft);
+      color: var(--primary);
+      font-size: var(--text-xs);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    h1, h2, h3 { margin: 0; line-height: 1.12; letter-spacing: -.03em; }
+    h1 { font-size: var(--text-xl); max-width: 16ch; }
+    h2 { font-size: var(--text-lg); margin-bottom: .85rem; }
+    h3 { font-size: 1rem; margin-bottom: .45rem; }
+    p { margin: 0; max-width: 72ch; }
+
+    .lead {
+      color: var(--text-muted);
+      font-size: clamp(1rem, .95rem + .25vw, 1.1rem);
+      max-width: 62ch;
+    }
+
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: .9rem;
+    }
+
+    .meta-item {
+      padding: 1rem;
+      border-radius: var(--radius-md);
+      background: var(--surface-soft);
+      border: 1px solid var(--border);
+    }
+
+    .meta-item strong {
+      display: block;
+      margin-bottom: .3rem;
+      font-size: var(--text-sm);
+    }
+
+    .meta-item span,
+    .muted { color: var(--text-muted); }
+
+    .layout {
+      display: grid;
+      gap: var(--space-6);
+      align-items: start;
+    }
+
+    .quick-nav {
+      border-radius: var(--radius-lg);
+      padding: 1.1rem;
+      position: sticky;
+      top: 6.5rem;
+    }
+
+    .quick-nav ul {
+      list-style: none;
+      padding: 0;
+      margin: .75rem 0 0;
+      display: grid;
+      gap: .4rem;
+    }
+
+    .quick-nav a {
+      display: block;
+      text-decoration: none;
+      padding: .6rem .7rem;
+      border-radius: .8rem;
+      color: var(--text-muted);
+    }
+
+    .quick-nav a:hover,
+    .quick-nav a:focus-visible {
+      background: var(--primary-soft);
+      color: var(--primary);
+      outline: none;
+    }
+
+    .content {
+      display: grid;
+      gap: var(--space-4);
+    }
+
+    .card {
+      border-radius: var(--radius-lg);
+      padding: clamp(1.25rem, 2vw, 1.75rem);
+      content-visibility: auto;
+    }
+
+    .card ul {
+      margin: .9rem 0 0;
+      padding-left: 1.15rem;
+    }
+
+    .card li + li { margin-top: .55rem; }
+
+    .note,
+    .contact-box {
+      margin-top: 1rem;
+      padding: 1rem;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      background: var(--surface-soft);
+    }
+
+    .contact-box {
+      display: grid;
+      gap: .45rem;
+      background: linear-gradient(180deg, var(--surface-soft), color-mix(in srgb, var(--surface-soft) 85%, var(--primary-soft)));
+    }
+
+    .pill-list {
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: .6rem;
+    }
+
+    .pill-list li {
+      padding: .6rem .8rem;
+      border-radius: var(--radius-full);
+      background: var(--success-soft);
+      color: var(--success-text);
+      font-size: var(--text-sm);
+      font-weight: 600;
+    }
+
+    footer {
+      padding: var(--space-8) 0 0;
+      color: var(--text-muted);
+      font-size: var(--text-sm);
+      text-align: center;
+    }
+
+    [data-lang-content] { display: none; }
+    html[data-lang="fr"] [data-lang-content="fr"],
+    html[data-lang="en"] [data-lang-content="en"] { display: block; }
+
+    :focus-visible {
+      outline: 2px solid var(--primary);
+      outline-offset: 3px;
+    }
+
+    @media (min-width: 900px) {
+      .layout {
+        grid-template-columns: 240px minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 899px) {
+      .quick-nav {
+        position: static;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .topbar {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .controls {
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      .segmented { width: 100%; justify-content: space-between; }
+      .lang-btn { flex: 1; }
+      h1 { max-width: 100%; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Aller au contenu</a>
+
+  <div class="shell">
+    <header class="topbar" aria-label="Barre supérieure">
+      <div class="brand" aria-label="Rune">
+        <div>
+          <div>Rune</div>
+          <div class="muted" style="font-size: var(--text-xs);">Privacy · Confidentialité</div>
+        </div>
+      </div>
+
+      <div class="controls">
+        <div class="segmented" role="group" aria-label="Language switcher">
+          <button class="lang-btn" type="button" data-lang-switch="fr" aria-pressed="true">Français</button>
+          <button class="lang-btn" type="button" data-lang-switch="en" aria-pressed="false">English</button>
+        </div>
+        <button class="icon-button" type="button" data-theme-toggle aria-label="Basculer le thème">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="hero" aria-labelledby="page-title">
+        <div class="eyebrow" data-lang-content="fr">Rune 26 · Données & support</div>
+        <div class="eyebrow" data-lang-content="en">Rune 26 · Data & support</div>
+
+        <div data-lang-content="fr">
+          <h1 id="page-title">Politique de confidentialité et assistance utilisateur</h1>
+          <p class="lead">Rune est une application de quiz de culture générale. Cette page explique de manière simple quelles données peuvent être utilisées lorsque vous jouez, pourquoi elles sont nécessaires et comment nous contacter pour toute question liée à l'application ou à vos données.</p>
+        </div>
+
+        <div data-lang-content="en">
+          <h1 id="page-title-en">Privacy policy and user support</h1>
+          <p class="lead">Rune is a general knowledge quiz app. This page explains in clear terms what data may be used when you play, why it is needed, and how to contact us about the app or your personal data.</p>
+        </div>
+
+        <div class="meta-grid">
+          <div class="meta-item">
+            <strong data-lang-content="fr">Dernière mise à jour</strong>
+            <strong data-lang-content="en">Last updated</strong>
+            <span>2026-05-01</span>
+          </div>
+          <div class="meta-item">
+            <strong data-lang-content="fr">Langues disponibles</strong>
+            <strong data-lang-content="en">Available languages</strong>
+            <span>Français · English</span>
+          </div>
+          <div class="meta-item">
+            <strong data-lang-content="fr">Contact</strong>
+            <strong data-lang-content="en">Contact</strong>
+            <span><a href="mailto:contact@rune-app.com">contact@rune-app.com</a></span>
+          </div>
+        </div>
+      </section>
+
+      <div class="layout">
+        <aside class="quick-nav" aria-label="Navigation rapide">
+          <div data-lang-content="fr">
+            <h2>Sommaire</h2>
+            <ul>
+              <li><a href="#data">Données traitées</a></li>
+              <li><a href="#purposes">Finalités</a></li>
+              <li><a href="#legal">Accès et permissions</a></li>
+              <li><a href="#services">Services tiers</a></li>
+              <li><a href="#sharing">Partage</a></li>
+              <li><a href="#retention">Conservation</a></li>
+              <li><a href="#rights">Vos choix</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+          <div data-lang-content="en">
+            <h2>Contents</h2>
+            <ul>
+              <li><a href="#data">Data we process</a></li>
+              <li><a href="#purposes">Purposes</a></li>
+              <li><a href="#legal">Access and permissions</a></li>
+              <li><a href="#services">Third-party services</a></li>
+              <li><a href="#sharing">Data sharing</a></li>
+              <li><a href="#retention">Retention</a></li>
+              <li><a href="#rights">Your choices</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+        </aside>
+
+        <div class="content">
+          <section class="card" id="data">
+            <div data-lang-content="fr">
+              <h2>1. Données traitées</h2>
+              <p>Selon les fonctionnalités que vous utilisez, Rune peut traiter uniquement les informations utiles au fonctionnement du jeu, de votre progression et du mode multijoueur.</p>
+              <ul>
+                <li>Nom de joueur ou pseudonyme saisi volontairement pour participer à une partie multijoueur.</li>
+                <li>Données de partie, comme les scores, l'avancement, l'historique récent, les questions enregistrées et l'état d'une session en cours.</li>
+                <li>Identifiants techniques et données de connexion nécessaires au bon fonctionnement de l'infrastructure utilisée par l'application.</li>
+                <li>Informations liées aux rooms multijoueur, comme le code de partie, les participants et les événements nécessaires à la synchronisation en temps réel.</li>
+                <li>Accès à la caméra uniquement si vous choisissez de scanner un QR code pour rejoindre une partie.</li>
+              </ul>
+            </div>
+            <div data-lang-content="en">
+              <h2>1. Data we process</h2>
+              <p>Depending on the features you use, Rune may process only the information needed to run the game, store your progress, and support multiplayer play.</p>
+              <ul>
+                <li>Player name or nickname voluntarily entered to join a multiplayer game.</li>
+                <li>Game data such as scores, progress, recent history, saved questions, and the state of an ongoing session.</li>
+                <li>Technical identifiers and connection data required for the underlying app infrastructure to operate properly.</li>
+                <li>Multiplayer room information, such as room codes, participants, and events needed for real-time synchronization.</li>
+                <li>Camera access only if you decide to scan a QR code to join a game.</li>
+              </ul>
+            </div>
+          </section>
+
+          <section class="card" id="purposes">
+            <div data-lang-content="fr">
+              <h2>2. Finalités d'utilisation</h2>
+              <p>Les données sont utilisées dans un cadre strictement fonctionnel afin de rendre l'expérience de jeu fluide, fiable et cohérente entre vos sessions.</p>
+              <ul>
+                <li>Faire fonctionner les quiz, afficher les questions et enregistrer les résultats.</li>
+                <li>Permettre le mode multijoueur, la création de rooms et la synchronisation entre les joueurs.</li>
+                <li>Sauvegarder votre progression, vos préférences et certains éléments de personnalisation.</li>
+                <li>Améliorer la stabilité technique, prévenir les erreurs de session et maintenir la disponibilité du service.</li>
+              </ul>
+            </div>
+            <div data-lang-content="en">
+              <h2>2. Why we use this data</h2>
+              <p>Data is used for strictly functional purposes so the gameplay experience remains smooth, reliable, and consistent across sessions.</p>
+              <ul>
+                <li>Run quizzes, display questions, and store results.</li>
+                <li>Enable multiplayer mode, room creation, and synchronization between players.</li>
+                <li>Save your progress, preferences, and selected personalization settings.</li>
+                <li>Improve technical stability, prevent session errors, and maintain service availability.</li>
+              </ul>
+            </div>
+          </section>
+
+          <section class="card" id="legal">
+            <div data-lang-content="fr">
+              <h2>3. Accès et permissions</h2>
+              <p>Rune n'accède pas à des fonctions sensibles de votre appareil sans raison liée à une fonctionnalité précise. Lorsqu'une permission est demandée, elle correspond à un usage clair dans l'application.</p>
+              <ul>
+                <li>Caméra : utilisée uniquement pour le scan de QR code si vous activez cette option.</li>
+                <li>Fonctionnalités multijoueur : certaines données techniques sont nécessaires pour identifier la session et connecter les joueurs entre eux.</li>
+                <li>Vous pouvez à tout moment refuser une permission non essentielle ; certaines fonctions associées peuvent alors être limitées.</li>
+              </ul>
+              <div class="note">Aucune vente de données personnelles n'est effectuée. Rune ne cherche pas à collecter plus d'informations que nécessaire au service proposé.</div>
+            </div>
+            <div data-lang-content="en">
+              <h2>3. Access and permissions</h2>
+              <p>Rune does not access sensitive device features without a reason tied to a specific feature. When a permission is requested, it matches a clear in-app use case.</p>
+              <ul>
+                <li>Camera: used only for QR code scanning if you choose to enable that feature.</li>
+                <li>Multiplayer features: some technical data is needed to identify a session and connect players together.</li>
+                <li>You may refuse any non-essential permission at any time, although the related feature may then be limited.</li>
+              </ul>
+              <div class="note">No personal data is sold. Rune aims to avoid collecting more information than is necessary for the service provided.</div>
+            </div>
+          </section>
+
+          <section class="card" id="services">
+            <div data-lang-content="fr">
+              <h2>4. Services tiers</h2>
+              <p>Rune peut s'appuyer sur des services techniques fournis par Google Firebase, notamment pour l'initialisation de l'application, certaines fonctions d'authentification technique et le stockage synchronisé de données via Firestore.</p>
+              <p>Ces outils servent à faire fonctionner l'application et ne modifient pas l'objectif principal de traitement décrit sur cette page.</p>
+            </div>
+            <div data-lang-content="en">
+              <h2>4. Third-party services</h2>
+              <p>Rune may rely on technical services provided by Google Firebase, including app initialization, certain technical authentication features, and synchronized data storage through Firestore.</p>
+              <p>These tools are used to operate the app and do not change the main purposes of processing described on this page.</p>
+            </div>
+          </section>
+
+          <section class="card" id="sharing">
+            <div data-lang-content="fr">
+              <h2>5. Partage des données</h2>
+              <p>Les données ne sont ni vendues ni cédées à des fins commerciales. Elles peuvent seulement être traitées par des prestataires techniques impliqués dans l'hébergement, la synchronisation ou le fonctionnement du service.</p>
+              <p>Ce partage reste limité à ce qui est nécessaire pour fournir les fonctionnalités de Rune.</p>
+            </div>
+            <div data-lang-content="en">
+              <h2>5. Data sharing</h2>
+              <p>Data is not sold or transferred for commercial resale. It may only be processed by technical providers involved in hosting, synchronization, or operating the service.</p>
+              <p>Any such sharing is limited to what is necessary to provide Rune's features.</p>
+            </div>
+          </section>
+
+          <section class="card" id="retention">
+            <div data-lang-content="fr">
+              <h2>6. Durée de conservation</h2>
+              <p>Les informations sont conservées pendant la durée utile au fonctionnement de l'application, à la gestion de vos parties et à la conservation de votre progression, sauf demande contraire lorsque cela est applicable.</p>
+              <ul class="pill-list">
+                <li>Progression</li>
+                <li>Scores</li>
+                <li>Sessions</li>
+                <li>Rooms multijoueur</li>
+              </ul>
+            </div>
+            <div data-lang-content="en">
+              <h2>6. Retention period</h2>
+              <p>Information is kept for as long as it is useful for the operation of the app, the management of your games, and the preservation of your progress, unless a different request applies where available.</p>
+              <ul class="pill-list">
+                <li>Progress</li>
+                <li>Scores</li>
+                <li>Sessions</li>
+                <li>Multiplayer rooms</li>
+              </ul>
+            </div>
+          </section>
+
+          <section class="card" id="rights">
+            <div data-lang-content="fr">
+              <h2>7. Vos choix et vos demandes</h2>
+              <p>Vous gardez le contrôle sur l'usage de certaines fonctionnalités et pouvez nous écrire pour toute question liée à vos données ou au fonctionnement de l'application.</p>
+              <ul>
+                <li>Vous pouvez ne pas utiliser le mode multijoueur si vous ne souhaitez pas partager un nom de joueur ou rejoindre une room.</li>
+                <li>Vous pouvez refuser l'accès à la caméra ; cela désactive uniquement le scan de QR code.</li>
+                <li>Vous pouvez demander des précisions complémentaires ou nous signaler une difficulté liée à vos données.</li>
+              </ul>
+            </div>
+            <div data-lang-content="en">
+              <h2>7. Your choices and requests</h2>
+              <p>You remain in control of certain features and may contact us with any question related to your data or to how the app works.</p>
+              <ul>
+                <li>You may choose not to use multiplayer if you do not want to share a player name or join a room.</li>
+                <li>You may refuse camera access; this only disables QR code scanning.</li>
+                <li>You may ask for additional information or report any issue related to your data.</li>
+              </ul>
+            </div>
+          </section>
+
+          <section class="card" id="contact">
+            <div data-lang-content="fr">
+              <h2>8. Contact et support</h2>
+              <p>Pour toute question concernant Rune, sa confidentialité, un problème de compte ou un besoin d'assistance, vous pouvez contacter l'éditeur à l'adresse suivante.</p>
+              <div class="contact-box">
+                <h3>Email</h3>
+                <p><a href="mailto:contact@rune-app.com">contact@rune-app.com</a></p>
+                <p class="muted">Merci d'indiquer si votre demande concerne le support utilisateur, une question de confidentialité ou un problème multijoueur afin de faciliter le traitement.</p>
+              </div>
+            </div>
+            <div data-lang-content="en">
+              <h2>8. Contact and support</h2>
+              <p>For any question about Rune, its privacy practices, an account issue, or general support, you can contact the publisher at the address below.</p>
+              <div class="contact-box">
+                <h3>Email</h3>
+                <p><a href="mailto:contact@rune-app.com">contact@rune-app.com</a></p>
+                <p class="muted">Please mention whether your request relates to user support, privacy, or a multiplayer issue so it can be handled more efficiently.</p>
+              </div>
+            </div>
+          </section>
+
+          <section class="card">
+            <div data-lang-content="fr">
+              <h2>9. Mises à jour de cette page</h2>
+              <p>Cette politique peut évoluer pour refléter les changements apportés à l'application, à ses fonctionnalités ou à ses obligations légales. La version publiée sur cette page est la version de référence.</p>
+            </div>
+            <div data-lang-content="en">
+              <h2>9. Updates to this page</h2>
+              <p>This policy may be updated to reflect changes to the app, its features, or applicable legal obligations. The version published on this page is the reference version.</p>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div data-lang-content="fr">Rune · Politique de confidentialité et support</div>
+      <div data-lang-content="en">Rune · Privacy policy and support</div>
+    </footer>
+  </div>
+
+  <script>
+    (function () {
+      const root = document.documentElement;
+      const buttons = document.querySelectorAll('[data-lang-switch]');
+      const themeButton = document.querySelector('[data-theme-toggle]');
+      let currentLang = 'fr';
+      let currentTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+
+      function applyLang(lang) {
+        currentLang = lang;
+        root.setAttribute('lang', lang);
+        root.setAttribute('data-lang', lang);
+        document.title = lang === 'fr' ? 'Politique de confidentialité · Rune' : 'Privacy Policy · Rune';
+        buttons.forEach((button) => {
+          button.setAttribute('aria-pressed', String(button.dataset.langSwitch === lang));
+        });
+      }
+
+      function icon(theme) {
+        return theme === 'dark'
+          ? '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"></circle><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path></svg>'
+          : '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>';
+      }
+
+      function applyTheme(theme) {
+        currentTheme = theme;
+        root.setAttribute('data-theme', theme);
+        themeButton.innerHTML = icon(theme);
+        themeButton.setAttribute('aria-label', theme === 'dark'
+          ? (currentLang === 'fr' ? 'Passer au thème clair' : 'Switch to light mode')
+          : (currentLang === 'fr' ? 'Passer au thème sombre' : 'Switch to dark mode'));
+      }
+
+      buttons.forEach((button) => {
+        button.addEventListener('click', () => {
+          applyLang(button.dataset.langSwitch);
+          applyTheme(currentTheme);
+        });
+      });
+
+      themeButton.addEventListener('click', () => {
+        applyTheme(currentTheme === 'dark' ? 'light' : 'dark');
+      });
+
+      applyLang('fr');
+      applyTheme(currentTheme);
+    })();
+  </script>
+</body>
+</html>
